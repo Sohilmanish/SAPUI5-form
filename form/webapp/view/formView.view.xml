@@ -1,0 +1,245 @@
+<mvc:View xmlns:cards="sap.f.cards" controllerName="com.manish.form.controller.formView"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns:l="sap.ui.layout"
+	xmlns:u="sap.ui.unified"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core"
+    xmlns:tnt="sap.tnt"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+	<tnt:ToolHeader id="shellLikeToolHeader" class="sapUiTinyMarginTopBottom" >
+	
+		
+    		<Button icon="sap-icon://menu2" type="Transparent" />
+            <SearchField width="16rem" id="searchField" />
+     		<ToolbarSpacer id="spacer">
+				<layoutData>
+					<OverflowToolbarLayoutData priority="Low" group="1"/>
+				</layoutData>
+			</ToolbarSpacer>
+			<Button visible="false" icon="sap-icon://search" type="Transparent" id="searchButton" tooltip="Search"/>	
+
+			<ToolbarSeparator>
+				<layoutData>
+					<OverflowToolbarLayoutData group="2"/>
+				</layoutData>
+			</ToolbarSeparator>
+			<OverflowToolbarButton icon="sap-icon://action-settings" type="Transparent" text="Settings"/>
+
+			<Button icon="sap-icon://bell" type="Transparent" tooltip="Notification">
+				<layoutData>
+					<OverflowToolbarLayoutData priority="NeverOverflow"/>
+				</layoutData>
+			</Button>
+			<tnt:ToolHeaderUtilitySeparator/>
+			<ToolbarSpacer width="1.125rem"/>
+
+			<Avatar src="" displaySize="XS" press=".onAvatarPressed" tooltip="Profile">
+				<layoutData>
+					<OverflowToolbarLayoutData priority="NeverOverflow"/>
+				</layoutData>
+			</Avatar>
+        </tnt:ToolHeader>
+   
+    <content> 
+
+	<f:SimpleForm id="SimpleFormChange354wideDual"
+			editable="true"
+			layout="ResponsiveGridLayout"
+			title="Personal Information"
+			labelSpanXL="4"
+			labelSpanL="3"
+			labelSpanM="4"
+			labelSpanS="12"
+			adjustLabelSpan="true"
+			emptySpanXL="0"
+			emptySpanL="4"
+			emptySpanM="0"
+			emptySpanS="0"
+			columnsXL="2"
+			columnsL="1"
+			columnsM="1"
+			singleContainerFullSize="false" >
+			<f:content>
+				<!-- <core:Title text="Office" /> -->
+				<Label 
+				      text="First Name " labelFor="fname" 
+					  required="true"
+					  design="Bold"
+					  class="sapUiSmallMarginBottom"
+					  />
+				<Input id="fname" value="{/naam}" />
+ 
+               <Label 
+				      text="Middle Name" labelFor="mname" 
+					  required="false"
+					  design="Bold"
+					  class="sapUiSmallMarginBottom"
+					  /> 
+                <Input id="mname" value="{/midName}" />
+
+				 <Label 
+				      text="Last Name" labelFor="lname" 
+					  required="true"
+					  design="Bold"
+					  class="sapUiSmallMarginBottom"
+					  /> 
+                <Input id="lname" value="{/caste}" />
+
+				 <Label 
+				      text="Roll No. " labelFor="rno" 
+					  required="true"
+					  design="Bold"
+					  class="sapUiSmallMarginBottom"
+					  /> 
+                <Input id="rno" value="{/SerialNum}" 
+				width="6rem" />
+
+				 <Label 
+				      text="Gender " labelFor="gid" 
+					  required="false"
+					  design="Bold"
+					  class="sapUiSmallMarginBottom"
+					  /> 
+                     <RadioButtonGroup id="gid" class="sapUiSmallMarginBottom" 
+					 selected="{/gender}">
+					<RadioButton text="Male"  />
+					<RadioButton text="female" />
+					<RadioButton text="Other" />
+					</RadioButtonGroup>
+
+				<Label 
+				      text="DOB " 
+					  labelFor="did" 
+					  required="false"
+					  design="Bold"
+					  /> 
+                 	<DatePicker
+					id="DP8"
+					value="{
+						'path':'/bday'
+					}"	
+					placeholder="Enter Date"
+					change="handleChange"
+					width="10rem"
+					class="sapUiSmallMarginBottom"
+					showFooter="true"/>
+
+                <Label 
+				      text="Contact No " 
+					  labelFor="cid" 
+					  required="false"
+					  design="Bold"
+					  class="sapUiSmallMarginBottom"
+					  /> 
+                 <Input id="cid" value="{/Number}" 
+				  type="Number"   />
+
+				  <Label 
+				      text="Email id " 
+					  labelFor="Eid" 
+					  required="true"
+					  design="Bold"
+					  class="sapUiSmallMarginBottom"
+					  /> 
+                 <Input id="Eid" value="{/mailId}"
+				 type="Email" />	
+
+			<Label text="Specialization" 
+				class="sapUiSmallMarginBottom"
+				design="Bold"/>
+				<Select id="Branch" 
+				
+				value="{
+						'path':'/branch'
+						}"
+				>
+					<items>
+						<core:Item 
+						text="Computer Science and Engineering" key="England"/>
+						<core:Item 
+						text="Electronics and Communication Engineering" key="Germany"/>
+						<core:Item 
+						text="Artificial and Intelligence Engineering " key="USA"/>
+                        <core:Item 
+						text="Data science Engineering" key="India"/>
+						<core:Item 
+						text="Electrical and Engineering" key="Pakistan"/>
+						<core:Item 
+						text="Mechanical Engineering" key="Norway"/>
+					</items>
+				</Select>
+
+			 <Label 
+				      text="Role applied for " 
+					  labelFor="Jobid" 
+					  required="false"
+					  design="Bold"
+					  class="sapUiSmallMarginBottom"
+					  /> 
+				    <VBox class="sapUiSmallMarginBottom">
+					<CheckBox text=" Graphic Designer" />
+                   	<CheckBox text=" Frontend Developer"  />
+					<CheckBox text=" SAPui5 Developer"  />
+					<CheckBox text=" Flutter Developer" />
+					<CheckBox text=" sub kuch aata hai" enabled="false" class="sapUiSmallMarginBottom" />
+					</VBox>
+
+				  <Label 
+				      text="Resume " 
+					  labelFor="Rid" 
+					  required="true"
+					  design="Bold"
+					  class="sapUiSmallMarginBottom"
+					  /> 
+                 <u:FileUploader
+					id="Rid"
+					name="myFileUpload"
+					uploadUrl="upload/"
+					tooltip="Upload your file to the local server"
+					uploadComplete="handleUploadComplete"
+					class="sapUiSmallMarginBottom"/>
+			           
+				<Label text="Profile Url" labelFor="hid" design="Bold" />	   
+		         <VBox class="sapUiSmallMarginBottom">
+				<Link
+				text="Github"
+				target="_blank"
+				href="https://github.com/Sohilmanish" />
+				<Link
+				text="LinkedIn"
+				target="_blank"
+				href="https://www.linkedin.com/in/manish-sohil-63097523a/" />
+				<Link
+				text="Youtube"
+				target="_blank"
+				href="https://youtube.com/@manishjee6941?si=FgjVpOPfNhuzmh7e" />
+				</VBox>
+	        
+		    </f:content>    
+	</f:SimpleForm>	
+
+		
+	</content>
+    <footer>
+     <Toolbar>
+     <ToolbarSpacer/>
+            <Button type="Negative"
+						text="Cancel"
+						press="onPress"
+						class="sapUiSmallMarginBeginEnd" />
+			<Button type="Success"
+			        press="onSubmit"
+						text="Submit"/>
+    </Toolbar>    
+	 </footer>  
+    	
+
+
+    </Page>
+</mvc:View>
+
+
+
+ 
+  
